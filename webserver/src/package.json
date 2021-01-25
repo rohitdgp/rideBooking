@@ -1,0 +1,38 @@
+{
+  "name": "ridebooking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start" : "node_modules/.bin/babel-node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitdgp/rideBooking.git"
+  },
+  "author": "Rohit Chauhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohitdgp/rideBooking/issues"
+  },
+  "homepage": "https://github.com/rohitdgp/rideBooking#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.11.6",
+    "@babel/register": "^7.11.6",
+    "@babel/runtime": "^7.11.6",
+    "@babel/preset-env": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.6",
+    "cookie-parser": "^1.4.5",
+    "nodemon": "^1.19.4",
+    "q": "^1.5.1",
+    "swagger-ui-express": "^4.1.4"
+  }
+}
