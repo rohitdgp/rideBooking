@@ -16,3 +16,10 @@ An application server for ride booking and lookups. Single server handling reque
 ### Ride Matching 
 1. While matching/assigning drivers to a ride request, following are to be considered, a. Distance from the starting location 
 b. Preferred ride type 
+
+
+## Installation/Setup
+
+* navigate to the rideBooking/webServer/src folder in the Project folder.
+* Run the command `npm install`, to install the necessary packages.
+* Once the necessary packages are installed in the previous step run the command `npm start` to run the application.
