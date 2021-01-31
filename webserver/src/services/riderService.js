@@ -31,11 +31,11 @@ exports.RiderService = class {
         riderRepo.findRecord(query);
     }
 
-    initiateSearch(location, destination, rider){
+    initiateSearch(location, destination, rider, rideType){
 
         let uniqueSearchId = Date.now(); //Making current mill time as unique ID for the search.
 
-        let drivers = this.bookingService.searchDrivers(location);
+        let drivers = this.bookingService.searchDrivers(rideType, location);
 
         if(drivers.length > 0){
             this.driverService.broadcastToDrivers(drivers, uniqueSearchId, location, this.calculateDistance(location, destination));

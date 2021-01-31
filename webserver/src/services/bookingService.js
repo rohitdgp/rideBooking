@@ -1,21 +1,20 @@
 import bookingRepo from '../repositories/bookingRepo';
+import {DriverService} from './driverService';
 
 exports.BookingService = class {
     constructor(){
-
+        this.driverService = new DriverService();
     }
 
-    searchDrivers(location){
-        if(getDriversByLocation(location)){
-            let query = {
-                location: location;
-            }
-            let result = driverService.getDriversByQuery(record);
-            res.status(200).send(result);
+    searchDrivers(rideType, location){
+
+        let query = {
+            location: location,
+            ride: rideType
         }
-        else res.status(415).send("Invalid record.");
+        let result = this.driverService.findDriverByQuery();;
+
+        res.status(200).send(result);
     }
-
-
 
 }
