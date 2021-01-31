@@ -14,7 +14,7 @@ exports.BookingService = class {
         }
         let result = this.driverService.findDriverByQuery();;
 
-        res.status(200).send(result);
+        return result;
     }
 
 }
