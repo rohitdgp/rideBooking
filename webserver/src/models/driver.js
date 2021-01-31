@@ -1,9 +1,11 @@
+import {Location} from "./location.js";
+
 exports.Driver = class {
     firstName;
     lastName;
     ride;
     mobileNumber;
-    location;
+    location = new Location();
     status;
     rating;
 
