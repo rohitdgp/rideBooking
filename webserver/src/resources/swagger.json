@@ -293,6 +293,50 @@
         ]
       }
     },
+    "/rider/initiateBooking": {
+      "get" : {
+        "tags": [
+          "rider"
+        ],
+        "summary": "Initiate a booking request",
+        "description": "Start searching for required ride and book",
+        "operationId": "initiateBooking",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Booking request Object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Driver"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Rider/Cutomer not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
     "/location/add": {
       "post": {
         "tags": [
@@ -651,6 +695,38 @@
         },
         "country":{
           "type": "string"
+        }
+      }
+    },
+    "BookingRequest": {
+      "type": "object",
+      "required": [
+        "location",
+        "rider",
+        "rideType",
+        "destination"
+      ],
+      "properties": {
+        "location": {
+          "type": "object",
+          "schema": {
+            "$ref": "#/definitions/Location"
+          }
+        },
+        "rider": {
+          "type": "object",
+          "schema": {
+            "$ref": "#/definitions/Rider"
+          }
+        },
+        "rideType": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "object",
+          "schema": {
+            "$ref": "#/definitions/Location"
+          }
         }
       }
     }

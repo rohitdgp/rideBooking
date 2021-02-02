@@ -1,4 +1,5 @@
 import {RiderService} from '../services/riderService';
+import {Rider} from '../models/rider';
 
 const riderService = new RiderService();
 exports.addRider = (req, res) => {
@@ -24,6 +25,6 @@ exports.getRider = (req, res) => {
     }
 }
 
-exports.getRideHistory = (req, res) => {
-
+exports.initiateSearch = (req, res) => {
+    riderService.initiateSearch(req.body.location,req.body.destination,req.body.rider, req.body.rideType);
 }

@@ -10,8 +10,8 @@ export default(app) => {
         .post(driverController.updateDriver);
     app.route('/api/v1/driver/get')
         .get(driverController.getDriver);
-    app.route('/api/v1/driver/getHistory')
-        .get(driverController.getRideHistory);
+    app.route('/api/v1/driver/acceptRequest')
+        .get(driverController.acceptRequest);
 
     app.route('/api/v1/rider/add')
         .post(riderController.addRider);
@@ -19,6 +19,6 @@ export default(app) => {
         .post(riderController.updateRider);
     app.route('/api/v1/rider/get')
         .get(riderController.getRider);
-    app.route('/api/v1/rider/getHistory')
-        .get(riderController.getRideHistory);
+    app.route('/api/v1/rider/initiateBooking')
+        .get(riderController.initiateSearch);
 }

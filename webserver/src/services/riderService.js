@@ -10,11 +10,10 @@ exports.RiderService = class {
     }
 
     addRider(res,record){
-        if(isRecordValid(record)){
+        //if(isRecordValid(record)){
             riderRepo.insertRecord(record);
             res.status(200).send("Success");
-        }
-        else res.status(415).send("Invalid record.");
+
         
     }
 
@@ -47,7 +46,7 @@ exports.RiderService = class {
         let acceptedDriver = "", timeout = 30000; //Timeout set to 30 secs
 
         while((timeout > (Date.now() - currentMillis)) && this.checkSearchState(uniqueSearchId)==="SEARCHING"){
-            await sleep(1000);
+
         }
 
         if(this.checkSearchState(uniqueSearchId)!=="SEARCHING"){

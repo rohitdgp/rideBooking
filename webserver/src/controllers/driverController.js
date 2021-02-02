@@ -1,5 +1,5 @@
 import {DriverService} from '../services/driverService';
-
+import {Driver} from '../models/driver';
 const driverService = new DriverService();
 
 exports.addDriver = (req, res) =>{

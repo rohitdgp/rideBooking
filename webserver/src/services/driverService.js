@@ -1,18 +1,18 @@
 import driverRepo from '../repositories/driverRepo';
 import rideRepo from '../repositories/rideRepo';
-import {RiderService} from './riderService';
+//import {RiderService} from './riderService';
 
 exports.DriverService = class {
     constructor(){
-        this.riderService = new RiderService();
+        //this.riderService = new RiderService();
     }
 
     addDriver(res,record){
-        if(isRecordValid(record)){
+        //if(isRecordValid(record)){
             driverRepo.insertRecord(record);
             res.status(200).send("Sucess");
-        }
-        else res.status(415).send("Invalid record.");
+//        }
+//        else res.status(415).send("Invalid record.");
         
     }
 
@@ -36,7 +36,7 @@ exports.DriverService = class {
     }
 
     acceptRequest(driver, uniqueSearchId){
-        if(this.riderService.checkSearchState(uniqueSearchId)==="SEARCHING"){
+        if(riderRepo.getRiderSearchState(uniqueSearchId)==="SEARCHING"){
             rideRepo.updateRecord({id:uniqueSearchId}, {id:uniqueSearchId, driver: driver});
             this.removeFromDriverQueue(driver, uniqueSearchId);
         }else{
@@ -47,7 +47,7 @@ exports.DriverService = class {
     addToDriverRideQueue(driver, uniqueSearchId, pickupLocation, totalDistance){
         driverRepo.addToQueue({
             mobileNumber: driver.mobileNumber,
-            searchId: uniqueSearchId
+            searchId: uniqueSearchId,
             pickupLocation: pickupLocation,
             totalDistance: totalDistance,
             status: "ACTIVE"
@@ -57,7 +57,7 @@ exports.DriverService = class {
     removeFromDriverQueue(driver, uniqueSearchId){
         driverRepo.updateQueue({mobileNumber: mobileNumber},{
             mobileNumber: driver.mobileNumber,
-            searchId: uniqueSearchId
+            searchId: uniqueSearchId,
             pickupLocation: pickupLocation,
             totalDistance: totalDistance,
             status: "INVALID"
