@@ -1,4 +1,4 @@
-# rideBooking
+# rideBooking [![Build](https://www.travis-ci.com/rohitdgp/rideBooking.svg?branch=main)](https://www.travis-ci.com/rohitdgp/rideBooking)
 
 ## Introduction
 An application server for ride booking and lookups. Single server handling requests for Drivers and Riders - lookups and bookings.
